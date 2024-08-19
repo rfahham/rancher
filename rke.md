@@ -136,3 +136,32 @@ Copiar o arquivo de configuração para a pasta padrão de configuração do clu
 cp kube_config_cluster.yml ~/.kube/config
 ```
 
+## Certificados / Unidades Certificadores
+
+Verificar a data dos certificados
+
+```bash
+kubectl config view --raw -o jsonpath="{.clusters[?(@.name == '')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
+```
+Verificar a data de validade do certificado do servidor de API
+
+```bash
+curl https://{apiserver-fqdn} -k -v 2>&1 | grep expire
+```
+
+Atualizando o certificado
+
+```bash
+rke cert rotate --config cluster.yaml --ssh-agent-auth 
+```
+
+Atualizando o CA
+```bash
+rke cert rotate --config cluster.yaml --ssh-agent-auth --rotate--ca 
+```
+
+Vai dar erro 509, tem que atualizar o kube/config
+
+```bash
+cp kube_config_cluster.yml ~/.kube/config
+```

@@ -1,56 +1,24 @@
-# rancher
+# Rancher Server
+ 
+Gerenciamento de Cluster Kubernetes
 
-Elementos da arquitetura de um K8S
+Ambientes:
 
-Control Plane ou Worker Node
+- Desenvolvimento
+- Homologação
+- Produção
 
-- Control Plane que é o orquestrador do cluster.
-    - API Server, responsável pela comunicação e interação com os nodes (kubectl)
-    - ETCD, banco "chave:valor", onde os dados são armazenados, deployments, pods, etc.
-    - Scheduler, ele que decide onde os pods serão criados 
-    - Controller Manager, controladores do kubernetes
-    - Cloud Controller Manager, utilizado em clouds públicas (aws, gcp, azure), em cloud privado não tem
+Pode ter a estrutura de projetos, que fica acima dos namespaces.
 
-- Worker Node 
-    - kube proxy, comunicação de rede
-    - kubelet, garante a execução dos containers no nodes, verifica a saúde, se comunica com container runtime
-    - Container runtime, interface de comunicação, ContainerD
+Dentro de cada ambiente pode haver divisões lógicas com `namespace`.
 
-Ferramentas para criação: 
+Pode ser utilizado com todas as Clouds públicas e privadas, inclusive multi-clouds
 
-- LOCAL: k3d, minikube, kind, k3s
-- ON PREMISES: RKE, KUBEADM
-- KAAS: AKS, EKS, GKE
+Com Rancher pode realizar as seguintes tarefas:
 
-
-Como criar ?
-
-- LOCAL: Fazer as instalações
-    - Consultar páginda de cada ferramenta
-
-- ON PREMISES:
-    - [Instalar Docker](./docker.md)
-    - [Instalar RKE](./rke.md)
-    - [Instalar Rancher](./rancher.md)
-
-
-- KAAS:
-    - 
-
-
-
-
-
-
-
-
-
-
-Inicie o servidor
-
-Para instalar e executar o Rancher, execute o seguinte comando Docker no seu host:
-
-```bash
-$ sudo docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
-```
+- Gerenciamento de usuários
+- Controle de acesso
+- Criação dinâmica de clusters kubernetes
+- Gerenciamento de projetos
+- Monitoramento, Métricas e Logs
 
