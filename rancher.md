@@ -67,5 +67,42 @@ sudo usermod -a -G docker ec2-user
 sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/rancher:stable
 ```
 
+## Acessando o Rancher Desktop
 
-docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:stable
+https://localhost:443
+
+<div align="center">
+
+![Home do Rancher](./images/home.png)
+<div>
+
+Para uma instalação "docker run":
+
+Encontre o ID do seu contêiner
+
+```bash 
+docker ps
+
+CONTAINER ID   IMAGE
+c6e3aa710fd6   rancher/rancher
+```
+
+E execute:
+
+```bash
+docker logs container-id 2>&1 | grep "Bootstrap Password:"
+
+2024/09/02 12:09:56 [INFO] Bootstrap Password: 987gfdgdsfg8dfg9dsgdgjfadsfjafafjsjfasjfas98f7j
+```
+
+Bem-vindo ao Rancher!
+
+<div align="center">
+
+![Bem-vindo ao Rancher!](./images/nova-senha.png)
+<div>
+
+<div align="center">
+
+![Rancher!](./images/rancher.png)
+<div>

@@ -17,4 +17,6 @@ spec:
         image: rfahham/workon:2.0.0
         # command: ["sleep", "infinity"]
         ports:
-        - containerPort: 80
+        - containerPort: 8080
+
+# kubectl port-forward deployment.apps/workon-deployment 8080:80
