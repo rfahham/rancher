@@ -22,3 +22,9 @@ Com Rancher pode realizar as seguintes tarefas:
 - Gerenciamento de projetos
 - Monitoramento, Métricas e Logs
 
+Neste projeto temos:
+
+- [Rancher Desktop](rancher.md)
+- [RKE](./rke.md)
+- Deployment workon
+- Infra
